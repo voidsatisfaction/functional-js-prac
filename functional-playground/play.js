@@ -1,4 +1,4 @@
-import forEach from '../lib/es6-functional';
+import { forEach } from '../lib/ch3_hoc';
 
 const array = [1,2,3, ...[4,5,6]];
 forEach(array, (data) => {
