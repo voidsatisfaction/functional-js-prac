@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import * as lib from '../lib/ch4_closure';
+import * as lib from '../src/lib/ch4_closure';
 
 describe('Remebering where it is born', () => {
   describe('fn()', () => {
