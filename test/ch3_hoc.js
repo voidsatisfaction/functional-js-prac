@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import * as lib from '../lib/es6-functional';
+import * as lib from '../lib/ch3_hoc';
 
 describe('Abstraction and Higher-Order Functions', () => {
   describe('forEach()', () => {
