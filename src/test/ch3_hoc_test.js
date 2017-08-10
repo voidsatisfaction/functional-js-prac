@@ -17,14 +17,14 @@ describe('Abstraction and Higher-Order Functions', () => {
       const obj = { a:1, b:2, c:undefined };
       lib.forEachObject(obj, (k, v) => {
         expect(v).to.equal(obj[k]);
-      })
+      });
     });
   });
   describe('unless()', () => {
     it('execute only the predicate is not', () => {
       lib.forEach([1,2,3,4,5,6,7], (number) => {
         lib.unless((number % 2 == 0), () => {
-          expect(false).to.equal(number % 2 == 0)
+          expect(false).to.equal(number % 2 == 0);
         });
       });
     });
@@ -64,15 +64,15 @@ describe('Higher-Order Functions in the Real World', () => {
   });
   describe('sortBy()', () => {
     const people = [
-      { fn: "aafn", ln: "ccln" },
-      { fn: "ccfn", ln: "aaln" },
-      { fn: "bbfn", ln: "bbln" }
+      { fn: 'aafn', ln: 'ccln' },
+      { fn: 'ccfn', ln: 'aaln' },
+      { fn: 'bbfn', ln: 'bbln' }
     ];
     it('sorted well', () => {
       const expected = [
-        { fn: "aafn", ln: "ccln" },
-        { fn: "bbfn", ln: "bbln" },
-        { fn: "ccfn", ln: "aaln" }
+        { fn: 'aafn', ln: 'ccln' },
+        { fn: 'bbfn', ln: 'bbln' },
+        { fn: 'ccfn', ln: 'aaln' }
       ];
       expect(people.sort(lib.sortBy('fn'))).to.eql(expected);
     });

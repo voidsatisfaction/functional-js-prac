@@ -11,19 +11,19 @@ export const forEachObject = (obj, fn) => {
       fn(property, obj[property]);
     }
   }
-}
+};
 
 export const unless = (predicate, fn) => {
   if (!predicate) {
     fn();
   }
-}
+};
 
 export const times = (times, fn) => {
   for (var i = 0; i < times; i++) {
     fn(i);
   }
-}
+};
 
 // Realworld
 export const every = (array, fn) => {
@@ -32,7 +32,7 @@ export const every = (array, fn) => {
     result = result && fn(value);
   }
   return result;
-}
+};
 
 export const some = (array, fn) => {
   let result = false;
@@ -40,10 +40,10 @@ export const some = (array, fn) => {
     result = result || fn(value);
   }
   return result;
-}
+};
 
 export const sortBy = (property) => {
   return (a, b) => {
     return (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
-  }
-}
+  };
+};

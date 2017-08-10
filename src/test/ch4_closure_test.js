@@ -14,7 +14,7 @@ describe('Remebering where it is born', () => {
 describe('HOC in the Real World - next', () => {
   describe('tap()', () => {
     it('tap success', () => {
-      expect(lib.tap('hi')((it) => console.log(it))).to.equal('hi');
+      expect(lib.tap('hi')((it) => (it))).to.equal('hi');
     });
   });
 
@@ -28,8 +28,8 @@ describe('HOC in the Real World - next', () => {
 
   describe('once()', () => {
     it('do it only once', () => {
-      const doPayment = lib.once(() => "Payment is done!");
-      expect(doPayment()).to.equal("Payment is done!");
+      const doPayment = lib.once(() => 'Payment is done!');
+      expect(doPayment()).to.equal('Payment is done!');
       expect(doPayment()).to.equal(undefined);
     });
   });

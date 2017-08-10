@@ -1,8 +1,7 @@
 export const fn = (arg) => {
-  const outer = "outer";
   const inner = () => {
     return arg;
-  }
+  };
   return inner;
 };
 
@@ -17,8 +16,8 @@ export const unary = (fn) => {
 
 export const once = (fn) => {
   let done = false;
-  return () => (
-    done ? undefined : ((done = true), fn.apply(this, arguments))
+  return (...args) => (
+    done ? undefined : ((done = true), fn.apply(this, args))
   );
 };
 
