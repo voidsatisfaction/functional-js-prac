@@ -104,3 +104,83 @@ describe('Reducing Funciton', () => {
     });
   });
 });
+
+const apressBooksServer = [{
+  name: 'beginners',
+  bookDetails: [
+    {
+      id: 111,
+      title: 'C# 6.0',
+      author: 'ANDREW TROELSEN',
+      rating: [4.7],
+    },
+    {
+      id: 222,
+      title: 'Efficient Learning Machines',
+      author: 'Rahul khanna',
+      rating: [4.5],
+    }
+  ]
+}, {
+  name: 'pro',
+  bookDetails: [
+    {
+      id: 333,
+      title: 'Pro AngularJS',
+      author: 'Adam Freeman',
+      rating: [4.0],
+    },
+    {
+      id: 444,
+      title: 'Pro ASP.NET',
+      author: 'Adam Freeman',
+      rating: [4.2],
+    }
+  ]
+}];
+
+const reviewDetails = [
+  {
+    id: 111,
+    reviews: [{ good: 4, excellent: 12 }]
+  },
+  {
+    id: 222,
+    reviews: []
+  },
+  {
+    id: 333,
+    reviews: []
+  },
+  {
+    id: 444,
+    reviews: [{ good: 14, excellent: 12 }]
+  },
+];
+
+describe('Zipping Arrays', () => {
+  describe('zip()', () => {
+    it('zip success', () => {
+      const arr1 = [1,2,3];
+      const arr2 = [4,5,6];
+      const got = arrayUtils.zip(arr1, arr2, (x, y) => x+y);
+      const want = [5,7,9];
+      expect(got).to.eql(want);
+    });
+
+    it('zip appress data mutation success', () => {
+      const bookDetails = arrayUtils.concatAll(
+        arrayUtils.map(apressBooksServer, (book) => book.bookDetails)
+      );
+      const got = arrayUtils.zip(bookDetails, reviewDetails, (book, review) => {
+        if (book.id === review.id) {
+          return { ...book, ...review };
+        }
+      });
+      const want = arrayUtils.concatAll(
+        arrayUtils.map(apressBooks, (book) => book.bookDetails)
+      );
+      expect(got).to.eql(want);
+    });
+  });
+});
