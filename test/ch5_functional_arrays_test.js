@@ -61,10 +61,16 @@ const apressBooks = [{
 
 describe('Chaining operations', () => {
   describe('concatAll()', () => {
-    it('concatAll success', () => {
+    it('concatAll success case1', () => {
       const array = [[1,2,3],[4,5,6,7,8],[9,10,11]];
       const got = arrayUtils.concatAll(array);
       const want = [1,2,3,4,5,6,7,8,9,10,11];
+      expect(got).to.eql(want);
+    });
+    it('concatAll success case2', () => {
+      const array = [[[1],2],[3],[4,5,6,7,8],[9,10,11]];
+      const got = arrayUtils.concatAll(array);
+      const want = [[1],2,3,4,5,6,7,8,9,10,11];
       expect(got).to.eql(want);
     });
     it('get all book details which have ratings more than 4.5', () => {
@@ -160,11 +166,18 @@ const reviewDetails = [
 
 describe('Zipping Arrays', () => {
   describe('zip()', () => {
-    it('zip success', () => {
+    it('zip success case1', () => {
       const arr1 = [1,2,3];
       const arr2 = [4,5,6];
       const got = arrayUtils.zip(arr1, arr2, (x, y) => x+y);
       const want = [5,7,9];
+      expect(got).to.eql(want);
+    });
+    it('zip success case2', () => {
+      const arr1 = [1,2,3,10];
+      const arr2 = [4,5,6];
+      const got = arrayUtils.zip(arr1, arr2, (x, y) => x+y);
+      const want = [5,7,9,10];
       expect(got).to.eql(want);
     });
 
