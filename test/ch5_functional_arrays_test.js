@@ -177,7 +177,7 @@ describe('Zipping Arrays', () => {
       const arr1 = [1,2,3,10];
       const arr2 = [4,5,6];
       const got = arrayUtils.zip(arr1, arr2, (x, y) => x+y);
-      const want = [5,7,9,10];
+      const want = [5,7,9];
       expect(got).to.eql(want);
     });
 
