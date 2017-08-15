@@ -1,3 +1,15 @@
+export function* generatorSequence() {
+  yield 'first';
+  yield 'second';
+  yield 'third';
+}
+
+export function* sayFullName() {
+  var firstName = yield;
+  var secondName = yield;
+  yield firstName + secondName;
+}
+
 let generator;
 const getDataOne = () => {
   setTimeout(() => {
@@ -11,11 +23,9 @@ const getDataTwo = () => {
   }, 1 * 1000);
 };
 
-function* main() {
+export function* main() {
   const dataOne = yield getDataOne();
-  console.log('1');
   const dataTwo = yield getDataTwo();
-  console.log('2');
   console.log(dataOne);
   console.log(dataTwo);
 }
